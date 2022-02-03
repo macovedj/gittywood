@@ -1,27 +1,16 @@
-# Redwood
+# Gitty
 
-> **NOTICE:** RedwoodJS is very close to a stable version 1.0. In the last two years,
-> the project has matured significantly and is already used in production by a number
-> of startups. We intend to have a 1.0 release candidate before the end of 2021 and
-> to release a truly production-ready 1.0 in early 2022.
+Gitty provides a means of publicly displaying the funding of repos to see how the core contributors have decided to allocate those funds between themselves, investors, and new contributors.
 
-## Getting Started
-- [Tutorial](https://redwoodjs.com/tutorial/welcome-to-redwood): getting started and complete overview guide.
-- [Docs](https://redwoodjs.com/docs/introduction): using the Redwood Router, handling assets and files, list of command-line tools, and more.
-- [Redwood Community](https://community.redwoodjs.com): get help, share tips and tricks, and collaborate on everything about RedwoodJS.
+## Philosophies, Influences, and Goals
 
-### Setup
+- Gitty takes inspiration from Github.
+- Gitty exists to help incentivize open source software development.
+- Gitty provides a means by which core contributors can have financial stake in their project.
+- When an individual has demonstrated to core contributors that they can offer technical, legal, administrative, or financial support to their project, the core developers can give them equity in their repo in exchange for their offered support.
+- This incentivizes stake holders to increase the value of the code which is an asset that offers utility. Its utility derives its value even though it is free to use.
+- If one of afforementioned points proves to contribute to a poor incentive structure then it will be reevaluated.
 
-We use Yarn as our package manager. To get the dependencies installed, just do this in the root directory:
+## Why Ethereum?
 
-```terminal
-yarn install
-```
-
-### Fire it up
-
-```terminal
-yarn redwood dev
-```
-
-Your browser should open automatically to `http://localhost:8910` to see the web app. Lambda functions run on `http://localhost:8911` and are also proxied to `http://localhost:8910/.redwood/functions/*`.
+Ethereum contracts appear to make it easier to develop what Gitty is trying to do. Specifically, Ethereum enables select equity holders to only increase the number of holders after they've voted. It also handles a lot of that development work for you.
