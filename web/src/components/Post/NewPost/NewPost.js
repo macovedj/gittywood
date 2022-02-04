@@ -3,16 +3,16 @@ import { toast } from '@redwoodjs/web/toast'
 import { navigate, routes } from '@redwoodjs/router'
 import PostForm from 'src/components/Post/PostForm'
 
-const CREATE_POST_MUTATION = gql`
-  mutation CreatePostMutation($input: CreatePostInput!) {
-    createPost(input: $input) {
+const CREATE_OWNER_MUTATION = gql`
+  mutation CreateOwnerMutation($input: CreatePostInput!) {
+    createOwner(input: $input) {
       id
     }
   }
 `
 
 const NewPost = () => {
-  const [createPost, { loading, error }] = useMutation(CREATE_POST_MUTATION, {
+  const [createPost, { loading, error }] = useMutation(CREATE_OWNER_MUTATION, {
     onCompleted: () => {
       toast.success('Post created')
       navigate(routes.posts())
