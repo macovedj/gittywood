@@ -10,7 +10,6 @@ const changeHandler = (e, setLogin) => {
 }
 async function checkUser({ supabase, setUser }) {
   const user = await supabase.auth.user()
-  console.log({ user })
   setUser(user)
 }
 
@@ -74,7 +73,11 @@ const HomePage = (params) => {
         If one of aforementioned points proves to contribute to a poor incentive
         structure... it will be reevaluated
       </ul>
-      {user ? <>future link to user page</> : <>Sign in to check it out</>}
+      {user ? (
+        <Link to={routes.user({ id: user.id })}>Check it out</Link>
+      ) : (
+        <>Sign in to check it out</>
+      )}
       <div>
         <a href="https://discord.gg/SZGGsmXkbX">Discord Server</a>
       </div>
