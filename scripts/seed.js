@@ -8,6 +8,16 @@ export default async () => {
     //
     // Update "const data = []" to match your data model and seeding needs
     //
+    const user = {
+      id: '123',
+      githubUUid: 'git123',
+      email: 'jon.doe@gmail.com',
+      owner: [],
+    }
+    const repository = {
+      id: '123',
+      url: '',
+    }
     const data = [
       // To try this example data with the UserExample model in schema.prisma,
       // uncomment the lines below and run 'yarn rw prisma migrate dev'

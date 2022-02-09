@@ -10,6 +10,7 @@ const changeHandler = (e, setLogin) => {
 }
 async function checkUser({ supabase, setUser }) {
   const user = await supabase.auth.user()
+  console.log({ user })
   setUser(user)
 }
 
