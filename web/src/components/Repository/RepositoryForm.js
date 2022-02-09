@@ -13,7 +13,7 @@ import {
 //   }
 // }
 
-const OwnerForm = (props) => {
+const RepositoryForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data)
   }
@@ -71,4 +71,4 @@ const OwnerForm = (props) => {
   )
 }
 
-export default OwnerForm
+export default RepositoryForm

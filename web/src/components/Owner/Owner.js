@@ -1,12 +1,15 @@
 import { useMutation } from '@redwoodjs/web'
 import { toast } from '@redwoodjs/web/toast'
-import { navigate, routes } from '@redwoodjs/router'
+// import { navigate, routes } from '@redwoodjs/router'
 import OwnerForm from 'src/components/Owner/OwnerForm'
 
 const CREATE_OWNER_MUTATION = gql`
   mutation CreateOwnerMutation($input: CreateOwnerInput!) {
     createOwner(input: $input) {
       id
+      userId
+      repositoryUrl
+      holdings
     }
   }
 `
@@ -24,7 +27,14 @@ const NewOwner = ({ id }) => {
 
   const onSave = (input) => {
     createOwner({
-      variables: { ...input, userId: id, id: `${id}-${input.url}` },
+      variables: {
+        input: {
+          repositoryUrl: input.url,
+          holdings: Number(input['Number of Shares']),
+          userId: id,
+          id: `${id}-${input.url}`,
+        },
+      },
     })
   }
 

@@ -3,31 +3,31 @@ export const schema = gql`
     id: String!
     user: User!
     userId: String!
-    Repository: Repository
-    repositoryUrl: String!
     holdings: Int!
+    repository: Repository
+    repositoryId: String
   }
 
   type Query {
     owners: [Owner!]! @requireAuth
+    owner(id: String!): Owner @requireAuth
   }
 
   input CreateOwnerInput {
-    id: String!
     userId: String!
-    repositoryUrl: String!
     holdings: Int!
+    repositoryId: String
   }
 
   input UpdateOwnerInput {
     userId: String
-    repositoryUrl: String
     holdings: Int
+    repositoryId: String
   }
 
   type Mutation {
-    createOwner(input: CreateOwnerInput!): Owner! @skipAuth
-    # updateOwner(id: Int!, input: UpdatePostInput!): Post! @requireAuth
-    # deleteOwner(id: Int!): Post! @requireAuth
+    createOwner(input: CreateOwnerInput!): Owner! @requireAuth
+    updateOwner(id: String!, input: UpdateOwnerInput!): Owner! @requireAuth
+    deleteOwner(id: String!): Owner! @requireAuth
   }
 `

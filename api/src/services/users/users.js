@@ -10,7 +10,26 @@ export const user = ({ id }) => {
   })
 }
 
+export const createUser = ({ input }) => {
+  return db.user.create({
+    data: input,
+  })
+}
+
+export const updateUser = ({ id, input }) => {
+  return db.user.update({
+    data: input,
+    where: { id },
+  })
+}
+
+export const deleteUser = ({ id }) => {
+  return db.user.delete({
+    where: { id },
+  })
+}
+
 export const User = {
-  owner: (_obj, { root }) =>
-    db.user.findUnique({ where: { id: root.id } }).owner(),
+  owners: (_obj, { root }) =>
+    db.user.findUnique({ where: { id: root.id } }).owners(),
 }

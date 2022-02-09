@@ -25,22 +25,24 @@ model Post {
 }
 
 model User {
-  id    String  @id
-  email String
-  owner Owner[]
+  id         String  @id @default(uuid())
+  githubUUID String  @unique
+  email      String
+  owners     Owner[]
 }
 
 model Repository {
-  url            String  @id @unique
+  id             String  @id @default(uuid())
+  url            String  @unique
+  numberOfShares Int     @default(0)
   owners         Owner[]
-  numberOfShares Int
 }
 
 model Owner {
-  id            String      @id @unique @db.Uuid
-  user          User        @relation(fields: [userId], references: [id])
-  userId        String
-  Repository    Repository? @relation(fields: [repositoryUrl], references: [url])
-  repositoryUrl String
-  holdings      Int
+  id           String     @id @default(uuid())
+  user         User       @relation(fields: [userId], references: [id])
+  userId       String
+  holdings     Int        @default(0)
+  repository   Repository @relation(fields: [repositoryId], references: [id])
+  repositoryId String
 }
